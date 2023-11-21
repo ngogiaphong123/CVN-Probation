@@ -1,0 +1,15 @@
+{
+    "name": "p003019/cvn-probation",
+    "autoload": {
+        "psr-4": {
+            "P003019\\CvnProbation\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ngogiaphong123",
+            "email": "ngogiaphong123@gmail.com"
+        }
+    ],
+    "require": {}
+}
