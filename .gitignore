@@ -1,2 +1,5 @@
 /vendor/
 .idea
+.env
+.phpunit.result.cache
+.phplint.cache
