@@ -1,26 +1,32 @@
 {
-    "name": "p003019/cvn-probation",
-    "autoload": {
-        "psr-4": {
-            "Core\\": "core/",
-            "Src\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "ngogiaphong123",
-            "email": "ngogiaphong123@gmail.com"
-        }
-    ],
-    "scripts": {
-        "start": "php -S localhost:8000 -t public"
-    },
-    "require": {
-        "vlucas/phpdotenv": "^5.6",
-        "ext-pdo": "*",
-        "ext-json": "*"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^10"
-    }
+	"name": "p003019/cvn-probation",
+	"autoload": {
+		"psr-4": {
+			"Core\\": "core/",
+			"Src\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "ngogiaphong123",
+			"email": "ngogiaphong123@gmail.com"
+		}
+	],
+	"scripts": {
+		"start": "php -S localhost:8000 -t public",
+		"lint": "phplint src/ core/",
+		"sniff": "phpcs --standard=PSR12 src/ core/",
+		"test": "phpunit --testdox",
+        "format": "phpcbf --standard=PSR12 src/ core/"
+	},
+	"require": {
+		"vlucas/phpdotenv": "^5.6",
+		"ext-pdo": "*",
+		"ext-json": "*"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^10",
+		"squizlabs/php_codesniffer": "3.*",
+		"overtrue/phplint": "^9.0"
+	}
 }

@@ -42,7 +42,8 @@ class UserModel extends BaseModel
 
     public function create($data)
     {
-        $sql = "INSERT INTO {$this->table} (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)";
+        $sql = "INSERT INTO {$this->table} (first_name, last_name, email, password)
+                VALUES (:first_name, :last_name, :email, :password)";
         $query = $this->db->conn->prepare($sql);
         $parameters = [
             'first_name' => $data['first_name'],
@@ -57,7 +58,11 @@ class UserModel extends BaseModel
 
     public function update($data, $id)
     {
-        $sql = "UPDATE {$this->table} SET first_name = :first_name, last_name = :last_name, email = :email, password = :password WHERE id = :id";
+        $sql = "UPDATE {$this->table} SET 
+            first_name = :first_name, 
+            last_name = :last_name, 
+            email = :email, password = :password 
+            WHERE id = :id";
         $query = $this->db->conn->prepare($sql);
         $parameters = [
             'first_name' => $data['first_name'],

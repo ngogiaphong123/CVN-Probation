@@ -96,9 +96,4 @@ class UserServiceTest extends TestCase
             ])
         );
     }
-
-    // public function testCreate()
-    // {
-    //     $this->assertTrue(true);
-    // }
 }

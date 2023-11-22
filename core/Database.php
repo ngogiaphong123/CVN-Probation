@@ -19,14 +19,13 @@ class Database
     {
         try {
             return new PDO(
-                "mysql:host=". $this->dbHost. ";port=". $this->dbPort. ";dbname=". $this->dbName,
+                "mysql:host=" . $this->dbHost . ";port=" . $this->dbPort . ";dbname=" . $this->dbName,
                 $this->username,
                 $this->password,
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
-        }
-        catch (PDOException $exception) {
-            exit("Connection error: " . $exception->getMessage(). '.');
+        } catch (PDOException $exception) {
+            exit("Connection error: " . $exception->getMessage() . '.');
         }
     }
     public function __construct()

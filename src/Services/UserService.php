@@ -16,7 +16,6 @@ class UserService extends BaseService
     {
         try {
             return $this->model->get();
-
         } catch (\Exception $e) {
             return [];
         }
