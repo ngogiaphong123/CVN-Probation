@@ -2,7 +2,8 @@
     "name": "p003019/cvn-probation",
     "autoload": {
         "psr-4": {
-            "P003019\\CvnProbation\\": "src/"
+            "Core\\": "core/",
+            "Src\\": "src/"
         }
     },
     "authors": [
@@ -11,5 +12,12 @@
             "email": "ngogiaphong123@gmail.com"
         }
     ],
-    "require": {}
+    "scripts": {
+        "start": "php -S localhost:8000 -t public"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "ext-pdo": "*",
+        "ext-json": "*"
+    }
 }
