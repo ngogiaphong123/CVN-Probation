@@ -12,6 +12,6 @@ $userController = new UserController(new UserService(new UserModel(new Database(
 
 $router->get('/users', [$userController, 'getAll']);
 
-$router->get('/users/(int:id)', [$userController, 'getById']);
+$router->post('/users', [$userController, 'create']);
 
 $router->dispatch();

@@ -19,4 +19,10 @@ class UserController extends BaseController
     {
         echo $this->response(200, $this->service->getAll());
     }
+
+    public function create(): void
+    {
+        $data = $this->jsonBody();
+        echo $this->response(201, $this->service->create($data));
+    }
 }
