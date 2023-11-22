@@ -17,7 +17,7 @@
 		"lint": "phplint src/ core/",
 		"sniff": "phpcs --standard=PSR12 src/ core/",
 		"test": "phpunit --testdox",
-        "format": "phpcbf --standard=PSR12 src/ core/"
+		"format": "phpcbf --standard=PSR12 src/ core/"
 	},
 	"require": {
 		"vlucas/phpdotenv": "^5.6",
@@ -28,5 +28,7 @@
 		"phpunit/phpunit": "^10",
 		"squizlabs/php_codesniffer": "3.*",
 		"overtrue/phplint": "^9.0"
-	}
+	},
+	"description": "CVN Probation",
+	"license": "MIT"
 }
