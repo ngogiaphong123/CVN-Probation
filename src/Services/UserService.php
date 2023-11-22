@@ -14,7 +14,12 @@ class UserService extends BaseService
     }
     public function getAll(): array
     {
-        return $this->model->get();
+        try {
+            return $this->model->get();
+
+        } catch (\Exception $e) {
+            return [];
+        }
     }
 
     public function create($data)

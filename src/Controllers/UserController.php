@@ -3,7 +3,6 @@
 namespace Src\Controllers;
 
 use Core\BaseController;
-use Src\Model\UserModel;
 use Src\Services\UserService;
 
 class UserController extends BaseController

@@ -7,7 +7,12 @@ class BaseController
     public function response($status = 200, $data = [], $messages = []): false|string
     {
         header('Content-type: application/json');
-        return responseJson($status, $data, $messages);
+        http_response_code($status);
+        return json_encode([
+            'status' => $status,
+            'data' => $data,
+            'messages' => $messages
+        ]);
     }
 
     public function params(): array
