@@ -34,6 +34,11 @@ jobs:
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
+    - name: Run linters and formatters
+      run: |
+        composer sniff
+        composer lint
+        composer format
 
-    # - name: Run test suite
-    #   run: composer run-script test
+    - name: Run test suite
+      run: composer test
