@@ -1,4 +1,5 @@
 <?php
+
 namespace Core;
 
 class Router
@@ -40,20 +41,27 @@ class Router
         ];
     }
 
+
     public function dispatch(): void
     {
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
 
         foreach ($this->routes as $route) {
-            if ($route['method'] === $method && preg_match('#^' . $route['route'] . '$#', $uri, $matches)) {
-                array_shift($matches); // Remove the full match from the beginning
+            // Replace route parameters with a regular expression
+            $pattern = preg_replace('#\(/\w+:\w+\)#', '/(\d+)', $route['route']);
+            $pattern = "#^" . $pattern . "$#";
+            if ($method === $route['method'] && preg_match($pattern, $uri, $matches)) {
+                // Remove the first match
+                array_shift($matches);
+                // Call the handler with the remaining matches as parameters
                 call_user_func_array($route['handler'], $matches);
                 return;
             }
         }
 
+        // No matching route was found
         http_response_code(404);
-        echo '404 Not Found';
+        echo '404 Page Not Found';
     }
 }

@@ -3,19 +3,20 @@
 namespace Src\Controllers;
 
 use Core\BaseController;
-use Src\Model\User;
+use Src\Model\UserModel;
+use Src\Services\UserService;
 
 class UserController extends BaseController
 {
-    private User $model;
+    private UserService $service;
 
-    public function __construct($model)
+    public function __construct(UserService $service)
     {
-        $this->model = $model;
+        $this->service = $service;
     }
 
     public function getAll(): void
     {
-        echo $this->response(200, $this->model->get());
+        echo $this->response(200, $this->service->getAll());
     }
 }

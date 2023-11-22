@@ -6,10 +6,12 @@ class BaseController
 {
     public function response($status = 200, $data = [], $messages = []): false|string
     {
-        return json_encode([
-            'status' => $status,
-            'messages' => $messages,
-            'data' => $data
-        ]);
+        header('Content-type: application/json');
+        return responseJson($status, $data, $messages);
+    }
+
+    public function params(): array
+    {
+        return $_SERVER['REQUEST_METHOD'] === 'GET' ? $_GET : $_POST;
     }
 }

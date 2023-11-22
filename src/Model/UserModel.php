@@ -2,10 +2,11 @@
 
 namespace Src\Model;
 
+use Core\BaseModel;
 use Core\Database;
 use PDO;
 
-class User
+class UserModel extends BaseModel
 {
     private Database $db;
     private string $table = 'users';
@@ -17,11 +18,16 @@ class User
 
     public function get(): false|array
     {
-        $sql = "SELECT * FROM {$this->table}";
-        $query = $this->db->conn->prepare($sql);
-        $query->execute();
+        try {
+            $sql = "SELECT * FROM {$this->table}";
+            $query = $this->db->conn->prepare($sql);
+            $query->execute();
 
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            echo $this->handleErrors($e->getMessage());
+            exit();
+        }
     }
 
     public function getById($id)
