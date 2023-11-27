@@ -6,6 +6,7 @@ services:
   php-app:
     build: .
     container_name: php-app
+    image: php-app
     restart: always
     env_file:
       - .env

@@ -38,3 +38,9 @@ jobs:
         composer format
     - name: Run test suite
       run: composer test
+    - name: build and push to docker hub
+      run: |
+        docker-compose build
+        docker tag php-app ${{ secrets.DOCKER_USERNAME }}/ci_demo_probation
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/ci_demo_probation
