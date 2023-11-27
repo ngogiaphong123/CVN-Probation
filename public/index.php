@@ -6,5 +6,4 @@ use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(BASE_DIR);
 $dotenv->load();
-
 require __DIR__ . '/../src/routes.php';

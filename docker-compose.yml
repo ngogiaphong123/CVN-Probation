@@ -1,42 +1,36 @@
-version: '1'
-services:
-  mysql:
-    image: mysql:8.1.0
-    ports:
-      - "13306:3306"
-    environment:
-      DB_HOST: mysql
-      MYSQL_DATABASE: Test
-      MYSQL_USER: giaphong
-      MYSQL_PASSWORD: phongjasmine123
-      MYSQL_ROOT_PASSWORD: phongjasmine123
-    volumes:
-      - ./mysql:/var/lib/mysql
-    networks:
-      - php_network
-
-  app:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    container_name: app
-    restart: always
-    working_dir: /var/www/  
-    volumes:
-      - ../:/var/www
-    networks:
-      - php_network
-
-  nginx:
-    image: nginx:1.19-alpine
-    container_name: nginx
-    restart: always
-    ports:
-      - 8000:80
-    volumes:
-      - ../:/var/www
-      - ./nginx:/etc/nginx/conf.d
-
+version: '3.8'
 networks:
-  php_network:
+  default:
     driver: bridge
+services:
+  php-app:
+    build: .
+    container_name: php-app
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - default
+
+  mysql:
+    image: mysql
+    restart: always
+    env_file:
+      - .env.docker
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=Test
+      - MYSQL_USER=giaphong
+      - MYSQL_PASSWORD=phongjasmine123
+      - MYSQL_PORT=3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
