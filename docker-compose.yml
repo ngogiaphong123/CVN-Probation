@@ -6,7 +6,7 @@ services:
   php-app:
     build: .
     container_name: php-app
-    image: php-app
+    image: ngogiaphong123/ci_demo_probation
     restart: always
     env_file:
       - .env.docker
