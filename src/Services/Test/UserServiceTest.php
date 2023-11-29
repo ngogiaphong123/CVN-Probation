@@ -48,6 +48,7 @@ class UserServiceTest extends TestCase
                     "first_name" => "Pgong",
                     "last_name" => "Ngo",
                     "email" => "ngj@",
+                    "password" => "123",
                     "created_at" => "2023-11-21 14:53:27",
                     "updated_at" => "2023-11-21 14:53:27"
                 ]
