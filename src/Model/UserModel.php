@@ -42,8 +42,7 @@ class UserModel extends BaseModel
 
     public function create($data)
     {
-        $sql = "INSERT INTO {$this->table} (first_name, last_name, email, password) 
-        VALUES (:first_name, :last_name, :email, :password)";
+        $sql = "INSERT INTO {$this->table} (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)";
         $query = $this->db->conn->prepare($sql);
         $parameters = [
             'first_name' => $data['first_name'],

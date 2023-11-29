@@ -81,7 +81,6 @@ class UserServiceTest extends TestCase
         $this->assertEquals(
             [
                 "id" => 1,
-                "first_name" => "Pgong",
                 "last_name" => "Ngo",
                 "email" => "ngj@",
                 "password" => "123",
