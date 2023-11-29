@@ -70,7 +70,6 @@ class UserServiceTest extends TestCase
         $userModelMock = $this->getMockBuilder(UserModel::class)->disableOriginalConstructor()->getMock();
         $userModelMock->method('create')->willReturn([
             "id" => 1,
-            "first_name" => "Pgong",
             "last_name" => "Ngo",
             "email" => "ngj@",
             "password" => "123",
@@ -81,6 +80,7 @@ class UserServiceTest extends TestCase
         $this->assertEquals(
             [
                 "id" => 1,
+                "first_name" => "Pgong",
                 "last_name" => "Ngo",
                 "email" => "ngj@",
                 "password" => "123",
