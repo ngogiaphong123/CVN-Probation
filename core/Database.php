@@ -19,8 +19,11 @@ class Database
     {
         try {
             return new PDO(
-                "mysql:host="
-                . $this->dbHost . ";port=" . $this->dbPort . ";dbname=" . $this->dbName, $this->username, $this->password, 
+                "mysql:host=" .
+                $this->dbHost . ";port=" . $this->dbPort .
+                ";dbname=" . $this->dbName,
+                $this->username,
+                $this->password,
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
         } catch (PDOException $exception) {
